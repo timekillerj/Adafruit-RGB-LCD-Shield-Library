@@ -72,6 +72,8 @@ Adafruit_RGBLCDShield::Adafruit_RGBLCDShield() {
   _button_pins[4] = 4;
 
   // Pin 5 is the only unsed pin on the MCP23017
+  // "Pin 5" is actually pin 26(GPA5) according to the spec sheet:
+  // http://ww1.microchip.com/downloads/en/DeviceDoc/21952b.pdf
   _buzzer_pin = 5;
   // we can't begin() yet :(
 }
