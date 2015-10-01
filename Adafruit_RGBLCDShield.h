@@ -103,6 +103,9 @@ public:
 #endif
   void command(uint8_t);
   uint8_t readButtons();
+void buzzer_on();
+void buzzer_off();
+void buzzer_timer(uint8_t);
 
 private:
   void send(uint8_t, uint8_t);
@@ -117,6 +120,7 @@ private:
   uint8_t _enable_pin; // activated by a HIGH pulse.
   uint8_t _data_pins[8];
   uint8_t _button_pins[5];
+  uint8_t _buzzer_pin;
   uint8_t _displayfunction;
   uint8_t _displaycontrol;
   uint8_t _displaymode;
