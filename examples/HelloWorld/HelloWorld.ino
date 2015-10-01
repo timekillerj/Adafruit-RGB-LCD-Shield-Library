@@ -72,6 +72,10 @@ void loop() {
       lcd.setBacklight(TEAL);
     }
     if (buttons & BUTTON_SELECT) {
+      lcd.print("Sounding Buzzer");
+      lcd.buzzer_on();
+      delay(5000);
+      lcd.buzzer_off();
       lcd.print("SELECT ");
       lcd.setBacklight(VIOLET);
     }
