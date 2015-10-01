@@ -71,6 +71,7 @@ Adafruit_RGBLCDShield::Adafruit_RGBLCDShield() {
   _button_pins[3] = 3;
   _button_pins[4] = 4;
 
+  // Pin 5 is the only unsed pin on the MCP23017
   _buzzer_pin = 5;
   // we can't begin() yet :(
 }
@@ -130,6 +131,7 @@ void Adafruit_RGBLCDShield::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) 
 
     _i2c.pinMode(_rs_pin, OUTPUT);
     _i2c.pinMode(_enable_pin, OUTPUT);
+    // Enable the previously unused pin as an output 
     _i2c.pinMode(_buzzer_pin, OUTPUT);
     for (uint8_t i=0; i<4; i++) 
       _i2c.pinMode(_data_pins[i], OUTPUT);
@@ -438,6 +440,7 @@ uint8_t Adafruit_RGBLCDShield::readButtons(void) {
   return reply;
 }
 
+// Add some methods to control the buzzer
 void Adafruit_RGBLCDShield::buzzer_on(void) {
   _pinMode(_buzzer_pin, OUTPUT);
   _digitalWrite(_buzzer_pin, HIGH);
@@ -448,6 +451,9 @@ void Adafruit_RGBLCDShield::buzzer_off(void) {
   _digitalWrite(_buzzer_pin, LOW);
 }
 
+// Delay doesn't work here for some reason. Need to look into
+// it. In the meantime, manually turning on and off with
+// buzzer_on and buzzer_off works just fine.
 void Adafruit_RGBLCDShield::buzzer_timer(uint8_t timer) {
   _pinMode(_buzzer_pin, OUTPUT);
   _digitalWrite(_buzzer_pin, HIGH);
