@@ -105,7 +105,7 @@ public:
   uint8_t readButtons();
 void buzzer_on();
 void buzzer_off();
-void buzzer_timer(uint8_t);
+void buzzer_timed(uint8_t);
 
 private:
   void send(uint8_t, uint8_t);

@@ -454,10 +454,10 @@ void Adafruit_RGBLCDShield::buzzer_off(void) {
 // Delay doesn't work here for some reason. Need to look into
 // it. In the meantime, manually turning on and off with
 // buzzer_on and buzzer_off works just fine.
-void Adafruit_RGBLCDShield::buzzer_timer(uint8_t timer) {
+void Adafruit_RGBLCDShield::buzzer_timed(uint8_t buzztime) {
   _pinMode(_buzzer_pin, OUTPUT);
   _digitalWrite(_buzzer_pin, HIGH);
-  delay(timer);
+  delay(buzztime);
   _digitalWrite(_buzzer_pin, LOW);
 }
 
